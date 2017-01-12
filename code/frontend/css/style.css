@@ -1,0 +1,251 @@
+/**
+ * 5.0 Content
+ */
+
+h1, h2, h3, h4, h5 ,h6 {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+}
+
+a, p {
+    font-family: 'Myriad Pro', sans-serif;
+    font-weight: 400;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: -webkit-radial-gradient(rgba(124, 198, 234, 0.65) 10%, rgba(124, 118, 214, 0.4) 70%), linear-gradient(135deg, rgba(255, 110, 200, 0.4), rgba(140, 255, 255, 0.4)), linear-gradient(-135deg, rgba(125, 125, 195, 0.4), rgba(140, 255, 255, 0.4));
+    background: -o-radial-gradient(rgba(124, 198, 234, 0.65) 10%, rgba(124, 118, 214, 0.4) 70%), linear-gradient(135deg, rgba(255, 110, 200, 0.4), rgba(140, 255, 255, 0.4)), linear-gradient(-135deg, rgba(125, 125, 195, 0.4), rgba(140, 255, 255, 0.4));
+    background: -moz-radial-gradient(rgba(124, 198, 234, 0.65) 10%, rgba(124, 118, 214, 0.4) 70%), linear-gradient(135deg, rgba(255, 110, 200, 0.4), rgba(140, 255, 255, 0.4)), linear-gradient(-135deg, rgba(125, 125, 195, 0.4), rgba(140, 255, 255, 0.4));
+    background: radial-gradient(rgba(124, 198, 234, 0.65) 10%, rgba(124, 118, 214, 0.4) 70%), linear-gradient(135deg, rgba(255, 110, 200, 0.4), rgba(140, 255, 255, 0.4)), linear-gradient(-135deg, rgba(125, 125, 195, 0.4), rgba(140, 255, 255, 0.4));
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#main {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .3s, visibility .3s;
+    -moz-transition: opacity .3s, visibility .3s;
+    transition: opacity .3s, visibility .3s;
+}
+#main.other {
+    opacity: 0;
+    visibility: hidden;
+}
+#main.static {
+    position: static;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+h1 {
+    color: #fff;
+    margin: 0 auto 20px;
+    font-size: 56px;
+    text-align: center;
+}
+
+p {
+    color: #fff;
+    font-size: 18px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+span.data {
+    font-size: 24px;
+    color: #564EAB;
+}
+
+select {
+    margin: auto 5px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    -webkit-border-radius: 0%;
+    -moz-border-radius: 0%;
+    border-radius: 0%;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+option {
+    color: #555;
+}
+
+input[type="submit"] {
+    background-color: rgba(255,255,255,.2);
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+#back-home a,
+#back-home a:link,
+#back-home a:active,
+#back-home a:visited {
+    background-color: rgba(255,255,255,.2);
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+#back-home a:hover,
+input[type="submit"]:hover {
+    background-color: rgba(255,255,255,.27);
+}
+
+a#more,
+h5#less {
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#other-queries {
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    -webkit-transition: opacity .3s, visibility .3s;
+    -moz-transition: opacity .3s, visibility .3s;
+    transition: opacity .3s, visibility .3s;
+}
+
+#other-queries.other {
+    opacity: 1;
+    visibility: visible;
+}
+
+#other-queries h1 {
+    margin: 20px auto;
+}
+
+#other-queries a,
+#other-queries a:link,
+#other-queries a:active,
+#other-queries a:visited {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    left: 0;
+    margin: 10px 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+#other-queries a:hover {
+    left: 10px;
+}
+
+ul {
+    padding: 0;
+    text-align: left;
+}
+
+table {
+    margin: 0 auto;
+    color: #fff;
+}
+
+th {
+    border-bottom: 2px solid #fff;
+}
+
+/* Bar Chart */
+#graph {
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.axis text {
+    font: 10px sans-serif;
+    stroke: #fff;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: #fff;
+    fill-opacity: .5;
+}
+
+.x.axis path {
+    display: none;
+}
+
+label {
+    display: block;
+    color: #fff;
+}
+/* Bar End Chart */
+
+/**
+ * 6.0 Footer
+ */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+footer.static {
+    position: static;
+}
+
+footer h6 {
+    color: #fff;
+    opacity: .7;
+}
