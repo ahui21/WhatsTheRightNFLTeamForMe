@@ -4,8 +4,8 @@ What's the Right NFL Team For Me?
 This is a tool meant to help new NFL fans figure out what the right NFL Team is
 for them, based on their own weighted interests and factors. It was created by
 a disillusioned San Diego Chargers fan,
-[Alwin Hui (ahui21)](https://github.com/ahui21), who after the devastating
-betrayal of Dean Spanos, decided to search for a new NFL team to support.
+[Alwin Hui (ahui21)](https://github.com/ahui21), who decided to search for a
+new NFL team to support after the devastating betrayal of Dean Spanos.
 
 This was inspired by Blythe Terrell, from FiveThirtyEight, who did a similar
 weighting system to determine her new NFL team. More information about her
