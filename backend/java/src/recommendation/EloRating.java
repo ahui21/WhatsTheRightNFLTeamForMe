@@ -3,19 +3,20 @@ package recommendation;
 public class EloRating {
 	/**Elo Rating*/
 	private String category;
-	private int rating;
+	private double rating;
 	private int numOfMatches = 0;
+	private boolean provisional = true;
 	
 	public EloRating() {
 	}
 	
-	public EloRating(String category, int rating) {
+	public EloRating(String category, double rating) {
 		this.category = category;
 		this.rating = rating;
 	}
 	
 	public void print() {
-        if (numOfMatches <= 20) {
+        if (this.provisional) {
         	System.out.println("PROVISIONAL ELO RATING for " + this.category + ": " + this.rating);
         } else {
         	System.out.println("ELO RATING for " + this.category + ": " + this.rating);
@@ -31,14 +32,14 @@ public class EloRating {
         }
         final EloRating r = (EloRating) o;
         
-        return (r.getCategory() == this.getCategory() && r.getRating() == this.getRating() && r.getNumOfMatches() == this.getNumOfMatches());
+        return (r.getCategory() == this.getCategory() && r.getRating() == this.getRating() && r.getNumOfMatches() == this.getNumOfMatches() && r.getProvisional() == this.getProvisional());
     }
     
     public void setCategory(String category) {
     	this.category = category;
     }
     
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
     
@@ -46,11 +47,15 @@ public class EloRating {
     	this.numOfMatches = numOfMatches;
     }
     
+    public void setProvisional(boolean provisional) {
+    	this.provisional = provisional;
+    }
+    
     public String getCategory() {
     	return this.category;
     }
 
-    public int getRating() {
+    public double getRating() {
         return this.rating;
     }
     
@@ -58,8 +63,16 @@ public class EloRating {
     	return this.numOfMatches;
     }
     
-    public void updateRating(int rating) {
+    public boolean getProvisional() {
+    	return this.provisional;
+    }
+    
+    public void updateRating(double rating) {
     	this.rating = rating;
     	this.numOfMatches++;
+    	
+    	if (this.numOfMatches > 20) {
+    		this.provisional = false;
+    	}
     }
 }

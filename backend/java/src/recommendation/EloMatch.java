@@ -41,10 +41,45 @@ public class EloMatch {
 	}
 	
 	public double expectedWinBy1() {
-		return 1/(1 + Math.pow(10, ((this.eloRating1.getRating() - this.eloRating2.getRating()) / 25)));
+		return 1/(1 + Math.pow(10, ((double)(this.eloRating2.getRating() - this.eloRating1.getRating()) / 25)));
 	}
 	
 	public double expectedWinBy2() {
 		return 1 - this.expectedWinBy1();
+	}
+	
+	public void winner(int winner) {
+		double newRating1;
+		double newRating2;
+		
+		if (winner == 1) {if (this.eloRating1.getProvisional()) {
+				newRating1 = this.eloRating1.getRating() + 2 * (1 - this.expectedWinBy1());
+			} else {
+				newRating1 = this.eloRating1.getRating() + (1 - this.expectedWinBy1());
+			}
+			
+			if (this.eloRating2.getProvisional()) {
+				newRating2 = this.eloRating2.getRating() + 2 * (0 - this.expectedWinBy2());
+			} else {
+				newRating2 = this.eloRating2.getRating() + (0 - this.expectedWinBy2());
+			}
+		} else if (winner == 2) {
+			if (this.eloRating1.getProvisional()) {
+				newRating1 = this.eloRating1.getRating() + 2 * (0 - this.expectedWinBy1());
+			} else {
+				newRating1 = this.eloRating1.getRating() + (0 - this.expectedWinBy1());
+			}
+			
+			if (this.eloRating2.getProvisional()) {
+				newRating2 = this.eloRating2.getRating() + 2 * (1 - this.expectedWinBy2());
+			} else {
+				newRating2 = this.eloRating2.getRating() + (1 - this.expectedWinBy2());
+			}
+		} else {
+			throw new IllegalArgumentException("Invalid winner of match");
+		}
+		
+		eloRating1.updateRating(newRating1);
+		eloRating2.updateRating(newRating2);
 	}
 }
