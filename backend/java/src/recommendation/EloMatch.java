@@ -39,4 +39,12 @@ public class EloMatch {
 	public EloRating getEloRating2() {
 		return this.eloRating2;
 	}
+	
+	private double expectedWinBy1() {
+		return 1/(1 + Math.pow(10, ((this.eloRating1.getRating() - this.eloRating2.getRating()) / 25)));
+	}
+	
+	private double expectedWinBy2() {
+		return 1 - this.expectedWinBy1();
+	}
 }
