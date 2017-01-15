@@ -9,7 +9,8 @@ public class EloRating {
 	public EloRating() {
 	}
 	
-	public EloRating(int rating) {
+	public EloRating(String category, int rating) {
+		this.category = category;
 		this.rating = rating;
 	}
 	
