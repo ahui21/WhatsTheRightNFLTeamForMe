@@ -40,6 +40,7 @@ public class Recommendation {
     public void setTeam(String team) {
         this.team = team;
     }
+    
     public void setPercentage(int percentage) {
         this.percentage = percentage;
     }
@@ -47,6 +48,7 @@ public class Recommendation {
     public String getTeam() {
         return this.team;
     }
+    
     public int getPercentage() {
         return this.percentage;
     }

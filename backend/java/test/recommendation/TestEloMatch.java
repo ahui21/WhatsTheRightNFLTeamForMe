@@ -8,43 +8,41 @@ public class TestEloMatch {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("Please enter the first rating category: ");
-		String category1 = scanner.nextLine();
+		EloRankings eloRankings = new EloRankings();
 		
-		System.out.println("Please enter the second rating category: ");
-		String category2 = scanner.nextLine();
-		
-		System.out.println("Elo Match between " + category1 + " and " + category2 + " being initialized...");
-		
-		System.out.println("Please enter the Elo rating for " + category1 + ":");
-		int rating1 = scanner.nextInt();
-		
-		System.out.println("Please enter the Elo rating for " + category2 + ":");
-		int rating2 = scanner.nextInt();
-		
-		System.out.println("Elo Match between " + category1 + " (" + rating1 + ") and " + category2 + " (" + rating2 + ") initialized. Now calculating...");
-		
-		EloRating eloRating1 = new EloRating(category1, rating1);
-		EloRating eloRating2 = new EloRating(category2, rating2);
-		
-		eloMatch = new EloMatch(eloRating1, eloRating2);
-		
-		eloMatch.getEloRating1().print();
-		eloMatch.getEloRating2().print();
-		
-		System.out.println("Expected win percentage for " + category1 + ": " + eloMatch.expectedWinBy1());
-		System.out.println("Expected win percentage for " + category2 + ": " + eloMatch.expectedWinBy2());
+		eloRankings.print();
 		
 		boolean continueTest = true;
 		
+		String category1, category2;
+		EloRating eloRating1, eloRating2;
+		
 		while(continueTest) {
+			System.out.println("Please enter the first rating category: ");
+			category1 = scanner.nextLine();
+			
+			System.out.println("Please enter the second rating category: ");
+			category2 = scanner.nextLine();
+			
+			System.out.println("Elo Match between " + category1 + " and " + category2 + " being initialized...");
+			
+			eloRating1 = eloRankings.getRating(category1);
+			eloRating2 = eloRankings.getRating(category2);
+			
+			System.out.println("Elo Match between " + category1 + " (" + eloRating1.getRating() + ") and " + category2 + " (" + eloRating2.getRating() + ") initialized. Now calculating...");
+			
+			eloMatch = new EloMatch(eloRating1, eloRating2);
+			
+			System.out.println("Expected win percentage for " + category1 + ": " + eloMatch.expectedWinBy1());
+			System.out.println("Expected win percentage for " + category2 + ": " + eloMatch.expectedWinBy2());
+			
 			System.out.println("Please enter the winner ('1' for " + category1 + " and '2' for " + category2 + "): ");
 			int winner = scanner.nextInt();
+			String temp = scanner.nextLine();
 			
 			eloMatch.winner(winner);
 			
-			eloMatch.getEloRating1().print();
-			eloMatch.getEloRating2().print();
+			eloRankings.print();
 		}
 		
 		scanner.close();
