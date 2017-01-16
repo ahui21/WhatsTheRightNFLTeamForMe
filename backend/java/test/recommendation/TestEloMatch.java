@@ -1,7 +1,5 @@
 package recommendation;
 
-import java.util.Scanner;
-
 public class TestEloMatch {
 	
 	public static void main(String[] args) {		
