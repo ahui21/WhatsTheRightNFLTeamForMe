@@ -1,6 +1,9 @@
 package recommendation;
 
 public class EloMatch {
+	private final int K_FACTOR1 = 15;
+	private final int K_FACTOR2 = 30;
+	
 	private EloRating eloRating1;
 	private EloRating eloRating2;
 	
@@ -53,27 +56,27 @@ public class EloMatch {
 		double newRating2;
 		
 		if (winner == 1) {if (this.eloRating1.getProvisional()) {
-				newRating1 = this.eloRating1.getRating() + 2 * (1 - this.expectedWinBy1());
+				newRating1 = this.eloRating1.getRating() + K_FACTOR2 * (1 - this.expectedWinBy1());
 			} else {
-				newRating1 = this.eloRating1.getRating() + (1 - this.expectedWinBy1());
+				newRating1 = this.eloRating1.getRating() + K_FACTOR1 * (1 - this.expectedWinBy1());
 			}
 			
 			if (this.eloRating2.getProvisional()) {
-				newRating2 = this.eloRating2.getRating() + 2 * (0 - this.expectedWinBy2());
+				newRating2 = this.eloRating2.getRating() + K_FACTOR2 * (0 - this.expectedWinBy2());
 			} else {
-				newRating2 = this.eloRating2.getRating() + (0 - this.expectedWinBy2());
+				newRating2 = this.eloRating2.getRating() + K_FACTOR1 * (0 - this.expectedWinBy2());
 			}
 		} else if (winner == 2) {
 			if (this.eloRating1.getProvisional()) {
-				newRating1 = this.eloRating1.getRating() + 2 * (0 - this.expectedWinBy1());
+				newRating1 = this.eloRating1.getRating() + K_FACTOR2 * (0 - this.expectedWinBy1());
 			} else {
-				newRating1 = this.eloRating1.getRating() + (0 - this.expectedWinBy1());
+				newRating1 = this.eloRating1.getRating() + K_FACTOR1 * (0 - this.expectedWinBy1());
 			}
 			
 			if (this.eloRating2.getProvisional()) {
-				newRating2 = this.eloRating2.getRating() + 2 * (1 - this.expectedWinBy2());
+				newRating2 = this.eloRating2.getRating() + K_FACTOR2 * (1 - this.expectedWinBy2());
 			} else {
-				newRating2 = this.eloRating2.getRating() + (1 - this.expectedWinBy2());
+				newRating2 = this.eloRating2.getRating() + K_FACTOR1 * (1 - this.expectedWinBy2());
 			}
 		} else {
 			throw new IllegalArgumentException("Invalid winner of match");
