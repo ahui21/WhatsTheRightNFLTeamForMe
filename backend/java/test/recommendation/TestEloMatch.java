@@ -6,10 +6,13 @@ public class TestEloMatch {
 		EloRankings eloRankings = new EloRankings();
 		
 		boolean continueTest = true;
+		int counter = 0;
 		
-		while(continueTest) {
+		while(counter < 100) {
+			counter++;
 			eloRankings.print();
 			eloRankings.nextMatch();
+			System.out.println("On iteration #" + counter);
 		}
 	}
 }

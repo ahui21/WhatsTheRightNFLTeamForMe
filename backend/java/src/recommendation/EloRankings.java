@@ -8,6 +8,7 @@ public class EloRankings {
 	private Random rand = new Random();
 	
 	private Scanner scanner;
+	private boolean temp = true;
 	
 	private String[] listOfCategories = {"FRL", "OWN", "PLA", "FUT",
 										 "BWG", "TRD", "BNG", "BEH",
@@ -18,7 +19,7 @@ public class EloRankings {
 		eloRatings = new HashMap<String, EloRating>();
 		
 		for (int i = 0; i < listOfCategories.length; i++) {
-			this.updateRating(listOfCategories[i], new EloRating(1500));
+			this.updateRating(listOfCategories[i], new EloRating(100));
 		}
 
     	scanner = new Scanner(System.in);
@@ -79,6 +80,12 @@ public class EloRankings {
 		System.out.println("Expected win percentage for " + listOfCategories[firstEloRating] + ": " + eloMatch.expectedWinBy1());
 		System.out.println("Expected win percentage for " + listOfCategories[secondEloRating] + ": " + eloMatch.expectedWinBy2());
 		
+		if ((listOfCategories[firstEloRating].compareTo(listOfCategories[secondEloRating])) < 0) {
+			temp = true;
+		} else {
+			temp = false;
+		}
+		
 		return eloMatch;
     }
     
@@ -91,8 +98,16 @@ public class EloRankings {
     }
     
     public int getWinner() {    	
-    	System.out.println("Please enter the winner (1 or 2):");
+    	/**System.out.println("Please enter the winner (1 or 2):");
     	
-    	return scanner.nextInt();
+    	return scanner.nextInt();*/
+    	
+    	//return rand.nextInt(2) + 1;
+    	
+    	if (temp) {
+    		return 1;
+    	} else {
+    		return 2;
+    	}
     }
 }

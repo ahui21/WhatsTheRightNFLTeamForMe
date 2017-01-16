@@ -1,8 +1,8 @@
 package recommendation;
 
 public class EloMatch {
-	private final int K_FACTOR1 = 15;
-	private final int K_FACTOR2 = 30;
+	private final int K_FACTOR1 = 25;
+	private final int K_FACTOR2 = 50;
 	
 	private EloRating eloRating1;
 	private EloRating eloRating2;
