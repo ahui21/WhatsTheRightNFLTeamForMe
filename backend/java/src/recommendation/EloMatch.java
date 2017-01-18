@@ -82,7 +82,7 @@ public class EloMatch {
 			throw new IllegalArgumentException("Invalid winner of match");
 		}
 		
-		eloRating1.updateRating(newRating1);
-		eloRating2.updateRating(newRating2);
+		this.eloRating1.updateRating(newRating1);
+		this.eloRating2.updateRating(newRating2);
 	}
 }

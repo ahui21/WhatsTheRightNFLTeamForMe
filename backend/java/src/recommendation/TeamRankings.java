@@ -8,14 +8,14 @@ public class TeamRankings {
 	private HashMap<String, Integer> correspondingColumns;
 	
 	public TeamRankings() {
-		teamRankings = new HashMap<String, int[]>();
-		correspondingColumns = new HashMap<String, Integer>();
+		this.teamRankings = new HashMap<String, int[]>();
+		this.correspondingColumns = new HashMap<String, Integer>();
 	}
 	
 	public void print() {
 		System.out.printf("%-20s \t", "TEAM NAME");
 		
-		String[] correspondingColumnsInArray = new String[correspondingColumns.size()];
+		String[] correspondingColumnsInArray = new String[this.correspondingColumns.size()];
 		
 		Set set = this.correspondingColumns.entrySet();
 		Iterator iterator = set.iterator();
@@ -88,7 +88,7 @@ public class TeamRankings {
         		if (firstLine) {
         			for (int i = 1; i < lineSeparatedByCommas.length; i++)
         			{
-        				correspondingColumns.put(lineSeparatedByCommas[i], i - 1);
+        				this.correspondingColumns.put(lineSeparatedByCommas[i], i - 1);
         			}
         			
         			firstLine = false;
@@ -97,7 +97,7 @@ public class TeamRankings {
         			for (int i = 1; i < lineSeparatedByCommas.length; i++) {
         				newLineSeparatedByCommas[i - 1] = Integer.parseInt(lineSeparatedByCommas[i]);
         			}
-        			teamRankings.put(lineSeparatedByCommas[0], newLineSeparatedByCommas);
+        			this.teamRankings.put(lineSeparatedByCommas[0], newLineSeparatedByCommas);
         		}
         	}
 

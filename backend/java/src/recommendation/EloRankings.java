@@ -5,8 +5,8 @@ import java.util.*;
 public class EloRankings {
 	/**Elo Rankings*/
 	private HashMap<String, EloRating> eloRatings;
-	private Random rand = new Random();
 	
+	private Random rand = new Random();
 	private Scanner scanner;
 	private boolean temp = true;
 	
@@ -16,17 +16,17 @@ public class EloRankings {
 										 "STX", "CCH", "UNI", "BMK"};
 	
 	public EloRankings() {
-		eloRatings = new HashMap<String, EloRating>();
+		this.eloRatings = new HashMap<String, EloRating>();
 		
 		for (int i = 0; i < listOfCategories.length; i++) {
 			this.updateRating(listOfCategories[i], new EloRating(100));
 		}
 
-    	scanner = new Scanner(System.in);
+    	this.scanner = new Scanner(System.in);
 	}
 	
 	public void print() {
-		Set set = eloRatings.entrySet();
+		Set set = this.eloRatings.entrySet();
 		Iterator iterator = set.iterator();
 		
 		while(iterator.hasNext()) {
@@ -56,7 +56,7 @@ public class EloRankings {
     }
     
     public void updateRating(String category, EloRating rating) {
-    	eloRatings.put(category, rating);
+    	this.eloRatings.put(category, rating);
     }
     
     public EloRating getRating(String category) {
@@ -64,23 +64,23 @@ public class EloRankings {
     }
     
     public EloMatch getNextMatch() {
-    	int firstEloRating = rand.nextInt(listOfCategories.length);
+    	int firstEloRating = rand.nextInt(this.listOfCategories.length);
     	int secondEloRating = firstEloRating;
     	
     	while (secondEloRating == firstEloRating) {
-    		secondEloRating = rand.nextInt(listOfCategories.length);
+    		secondEloRating = rand.nextInt(this.listOfCategories.length);
     	}
     	
-    	EloMatch eloMatch = new EloMatch(eloRatings.get(listOfCategories[firstEloRating]), eloRatings.get(listOfCategories[secondEloRating]));
+    	EloMatch eloMatch = new EloMatch(eloRatings.get(this.listOfCategories[firstEloRating]), this.eloRatings.get(this.listOfCategories[secondEloRating]));
 		
-    	System.out.println("Elo Match between " + listOfCategories[firstEloRating] + " and " + listOfCategories[secondEloRating] + " being initialized...");
+    	System.out.println("Elo Match between " + this.listOfCategories[firstEloRating] + " and " + this.listOfCategories[secondEloRating] + " being initialized...");
 		
-		System.out.println("Elo Match between " + listOfCategories[firstEloRating] + " (" + eloRatings.get(listOfCategories[firstEloRating]).getRating() + ") and " + listOfCategories[secondEloRating] + " (" + eloRatings.get(listOfCategories[secondEloRating]).getRating() + ") initialized. Now calculating...");
+		System.out.println("Elo Match between " + this.listOfCategories[firstEloRating] + " (" + this.eloRatings.get(this.listOfCategories[firstEloRating]).getRating() + ") and " + this.listOfCategories[secondEloRating] + " (" + this.eloRatings.get(this.listOfCategories[secondEloRating]).getRating() + ") initialized. Now calculating...");
 		
-		System.out.println("Expected win percentage for " + listOfCategories[firstEloRating] + ": " + eloMatch.expectedWinBy1());
-		System.out.println("Expected win percentage for " + listOfCategories[secondEloRating] + ": " + eloMatch.expectedWinBy2());
+		System.out.println("Expected win percentage for " + this.listOfCategories[firstEloRating] + ": " + eloMatch.expectedWinBy1());
+		System.out.println("Expected win percentage for " + this.listOfCategories[secondEloRating] + ": " + eloMatch.expectedWinBy2());
 		
-		if ((listOfCategories[firstEloRating].compareTo(listOfCategories[secondEloRating])) < 0) {
+		if ((this.listOfCategories[firstEloRating].compareTo(this.listOfCategories[secondEloRating])) < 0) {
 			temp = true;
 		} else {
 			temp = false;
