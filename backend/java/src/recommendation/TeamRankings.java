@@ -11,6 +11,40 @@ public class TeamRankings {
 		teamRankings = new HashMap<String, int[]>();
 		correspondingColumns = new HashMap<String, Integer>();
 	}
+	
+	public void print() {
+		System.out.printf("%-20s \t", "TEAM NAME");
+		
+		String[] correspondingColumnsInArray = new String[correspondingColumns.size()];
+		
+		Set set = this.correspondingColumns.entrySet();
+		Iterator iterator = set.iterator();
+		
+		while(iterator.hasNext()) {
+			Map.Entry mentry = (Map.Entry)iterator.next();
+			correspondingColumnsInArray[(int)mentry.getValue()] = (String)mentry.getKey();
+		}
+		
+		for (int i = 0; i < correspondingColumnsInArray.length; i++) {
+			System.out.print(correspondingColumnsInArray[i] + "\t");
+		}
+		
+		System.out.println("\n");
+        
+		set = this.teamRankings.entrySet();
+		iterator = set.iterator();
+		
+		while(iterator.hasNext()) {
+			Map.Entry mentry = (Map.Entry)iterator.next();
+			System.out.printf("%-20s:\t", mentry.getKey());
+			
+			for (int i = 0; i < this.correspondingColumns.size(); i++) {
+				System.out.print(((int[])(mentry.getValue()))[i] + "\t");
+			}
+			
+			System.out.println();
+		}
+    }
 
     public boolean equals(Object o) {
         if (o == null) {
