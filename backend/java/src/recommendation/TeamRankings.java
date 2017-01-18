@@ -105,4 +105,10 @@ public class TeamRankings {
             e.printStackTrace();
         }
 	}
+	
+	public int getRankingByTeamAndAttribute(String team, String attribute) {
+		int correspondingColumn = this.correspondingColumns.get(attribute);
+		
+		return this.teamRankings.get(team)[correspondingColumn];
+	}
 }
