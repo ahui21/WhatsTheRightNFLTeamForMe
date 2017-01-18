@@ -3,7 +3,6 @@ package recommendation;
 import java.util.*;
 
 public class TestEloRankings {
-	
 	public static void main(String[] args) {		
 		double[] highs = new double[100];
 		double[] lows = new double[100];
