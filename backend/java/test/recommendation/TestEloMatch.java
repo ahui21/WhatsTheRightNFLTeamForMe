@@ -1,68 +1,52 @@
 package recommendation;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class TestEloMatch {
+	private static EloMatch eloMatch;
 	
-	public static void main(String[] args) {		
-		double[] highs = new double[100];
-		double[] lows = new double[100];
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 		
-		for (int i = 0; i < 100; i++) {
-			EloRankings eloRankings = new EloRankings();
+		System.out.println("Please enter the first rating category: ");
+		String category1 = scanner.nextLine();
 		
-			boolean continueTest = true;
-			int counter = 0;
+		System.out.println("Please enter the second rating category: ");
+		String category2 = scanner.nextLine();
+		
+		System.out.println("Elo Match between " + category1 + " and " + category2 + " being initialized...");
+		
+		System.out.println("Please enter the Elo rating for " + category1 + ":");
+		int rating1 = scanner.nextInt();
+		
+		System.out.println("Please enter the Elo rating for " + category2 + ":");
+		int rating2 = scanner.nextInt();
+		
+		System.out.println("Elo Match between " + category1 + " (" + rating1 + ") and " + category2 + " (" + rating2 + ") initialized. Now calculating...");
+		
+		EloRating eloRating1 = new EloRating(rating1);
+		EloRating eloRating2 = new EloRating(rating2);
+		
+		eloMatch = new EloMatch(eloRating1, eloRating2);
+		
+		eloMatch.getEloRating1().print();
+		eloMatch.getEloRating2().print();
+		
+		System.out.println("Expected win percentage for " + category1 + ": " + eloMatch.expectedWinBy1());
+		System.out.println("Expected win percentage for " + category2 + ": " + eloMatch.expectedWinBy2());
+		
+		boolean continueTest = true;
+		
+		while(continueTest) {
+			System.out.println("Please enter the winner ('1' for " + category1 + " and '2' for " + category2 + "): ");
+			int winner = scanner.nextInt();
 			
-			while(counter < 100) {
-				counter++;
-				eloRankings.print();
-				eloRankings.nextMatch();
-				System.out.println("On iteration #" + counter);
-			}
+			eloMatch.winner(winner);
 			
-			double high = 100;
-			double low = 100;
-			
-			HashMap<String, EloRating> eloRatings = eloRankings.getEloRatings();
-			
-			Set set = eloRatings.entrySet();
-			Iterator iterator = set.iterator();
-			
-			while(iterator.hasNext()) {
-				Map.Entry mentry = (Map.Entry)iterator.next();
-				
-				if (((EloRating) (mentry.getValue())).getRating() < low) {
-					low = ((EloRating) (mentry.getValue())).getRating();
-				}
-				
-				if (((EloRating) (mentry.getValue())).getRating() > high) {
-					high = ((EloRating) (mentry.getValue())).getRating();
-				}
-			}
-			
-			highs[i] = high;
-			lows[i] = low;
+			eloMatch.getEloRating1().print();
+			eloMatch.getEloRating2().print();
 		}
 		
-		System.out.println("\n\n\n");
-		
-		double sum = 0;
-		
-		for (int i = 0; i < highs.length; i++) {
-			sum = sum + highs[i];
-		}
-		
-		System.out.println("High average: " + sum/100);
-		
-		System.out.println("\n");
-		
-		sum = 0;
-		
-		for (int i = 0; i < lows.length; i++) {
-			sum = sum + lows[i];
-		}
-		
-		System.out.println("Low average: " + sum/100);
+		scanner.close();
 	}
 }
