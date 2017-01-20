@@ -10,6 +10,14 @@ public class TestWeightedRankings {
 		WeightedRankings weightedRankings = new WeightedRankings();
 		
 		weightedRankings.print();
-		weightedRankings.nextMatch();
+		
+		int counter = 0;
+		
+		while(counter < 100) {
+			counter++;
+			weightedRankings.print();
+			weightedRankings.nextMatch();
+			System.out.println("On iteration #" + counter);
+		}
 	}
 }

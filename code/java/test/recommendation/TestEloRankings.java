@@ -10,7 +10,6 @@ public class TestEloRankings {
 		for (int i = 0; i < 100; i++) {
 			EloRankings eloRankings = new EloRankings();
 		
-			boolean continueTest = true;
 			int counter = 0;
 			
 			while(counter < 100) {
