@@ -8,14 +8,30 @@ public class WeightedRankings {
 	public TeamRankings teamRankings;
 	public EloRankings eloRankings;
 	
+	private String defaultFileLocation = "resources/team-picking-categories.csv";
+	
 	public WeightedRankings() {
 		this.teamRankings = new TeamRankings();
+		teamRankings.populateData(defaultFileLocation);
+		this.eloRankings = new EloRankings();
+	}
+	
+	public WeightedRankings(String fileLocation) {
+		this.teamRankings = new TeamRankings();
+		teamRankings.populateData(fileLocation);
 		this.eloRankings = new EloRankings();
 	}
 	
 	public void print() {
+		System.out.println("\n\nElo Rankings\n"
+				+ "---------------------------------------------------------");
 		this.eloRankings.print();
+		
+		System.out.println("\n\nTeam Rankings\n"
+				+ "---------------------------------------------------------");
 		this.teamRankings.print();
+		
+		System.out.println("\n\n");
     }
 
     public boolean equals(Object o) {
