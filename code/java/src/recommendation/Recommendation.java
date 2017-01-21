@@ -18,7 +18,7 @@ public class Recommendation {
     }
     
     public void print() {
-        System.out.println("TEAM: " + this.team + ", PERCENTAGE: " + this.percentage);
+        System.out.println(this.team + " (" + this.percentage + "%)");
     }
 
     public boolean equals(Object o) {
