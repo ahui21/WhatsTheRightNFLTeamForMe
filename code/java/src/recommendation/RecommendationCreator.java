@@ -15,7 +15,7 @@ public class RecommendationCreator {
 		this.sort();
 		
 		for (int i = 0; i < this.recommendations.length; i++) {
-			
+			this.recommendations[i].print();
 		}
 	}
 	

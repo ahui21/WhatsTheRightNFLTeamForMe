@@ -1,5 +1,6 @@
 package recommendation;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -67,6 +68,11 @@ public class WeightedRankings {
 	}
 	
 	public void calculateRankings() {
+		HashMap<String, EloRating> eloRatings = this.eloRankings.getEloRatings();
+		int numOfTeams = this.teamRankings.getTeamRankings().size();
 		
+		for (int i = 0; i < numOfTeams; i++) {
+			
+		}
 	}
 }
